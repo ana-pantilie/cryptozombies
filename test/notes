@@ -1,0 +1,14 @@
+NOTES FOR TRUFFLE DOCS:
+
+Javascript tests:
+    0. can't use this for testing private/internal functions :( but we can treat their occurance as inline code i guess
+    1. use BigNumber! when retrieving data from Solidity contract calls or interacting with the contracts from Javascript use BigNumber, otherwise error
+    2. Solidity creates getters for public storage data in a contract; for arrays, the created getter does not return the array, it takes one param as index and returns the object stored at that index in the array; from Javacript, that index must be a BigNumber object (see no. 1.)
+    3. when writing a test don't forget you can print any of these objects to understand how to use them :) 
+    4. write a small introduction on Promises and wait/async
+
+ZombieFactory testing specification: 
+    it should add another zombie to zombies[], zombieToOwner[<zombie's pos in zombies[]>] = msg.sender and ownerZombieCount[msg.sender] = 1; contract should revert when msg.sender already has a zombie;
+
+TODO: see if we can mock
+      see how this testing framework works and how we could integrate it with the kevm (to use kevm instead of the ethereum simulation it uses now)
